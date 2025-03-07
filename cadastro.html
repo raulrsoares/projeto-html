@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Livros Na Mão</title>
+		<link rel="stylesheet" href="css/index.css" />
+		<link rel="stylesheet" href="css/cookie.css" />
+		<link rel="stylesheet" href="css/cadastro.css" />
+	</head>
+	<body>
+		<nav>
+			<ul>
+				<li><a href="index.html">Início</a></li>
+				<li><a href="livros.html">Livros</a></li>
+				<li><a href="contato.html">Contato</a></li>
+				<li><a href="login.html">Login</a></li>
+				<li><a href="cadastro.html">Cadastro</a></li>
+				<!-- Só deve aparecer depois que for feito login -->
+				<li id="perfil-link"><a href="perfil.html">Perfil</a></li>
+				<li><a href="politica_privacidade.html">Política de Privacidade</a></li>
+			</ul>
+		</nav>
+
+		<div class="cadastro-container">
+			<h2>Cadastre-se</h2>
+			<form>
+				<div class="input-group">
+					<label for="userfullname">Nome Completo:</label>
+					<input type="text" name="userfullname" id="userfullname" placeholder="Digite seu nome" required />
+				</div>
+				<div class="input-group">
+					<label for="useremail">E-mail:</label>
+					<input type="text" name="useremail" id="useremail" placeholder="Digite seu e-mail" required />
+				</div>
+				<div class="input-group">
+					<label for="userpass">Senha:</label>
+					<input type="password" name="userpass" id="userpass" placeholder="Digite sua senha" required />
+				</div>
+				<div class="input-group">
+					<label for="userpassconfirm">Senha Novamente:</label>
+					<input type="password" name="userpassconfirm" id="userpassconfirm" placeholder="Digite sua senha novamente" required />
+				</div>
+				<div class="input-group">
+					<button type="submit">Cadastrar</button>
+				</div>
+				<div class="input-group">Já possui uma conta? <a href="login.html">Conecte-se</a></div>
+			</form>
+		</div>
+	</body>
+</html>
