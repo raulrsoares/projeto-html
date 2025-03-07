@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Livros Na Mão</title>
+		<link rel="stylesheet" href="css/index.css" />
+		<link rel="stylesheet" href="css/login.css" />
+		<link rel="stylesheet" href="css/cookie.css" />
+	</head>
+	<body>
+		<nav>
+			<ul>
+				<li><a href="index.html">Início</a></li>
+				<li><a href="livros.html">Livros</a></li>
+				<li><a href="contato.html">Contato</a></li>
+				<li><a href="login.html">Login</a></li>
+				<li><a href="cadastro.html">Cadastro</a></li>
+				<!-- Só deve aparecer depois que for feito login -->
+				<li id="perfil-link"><a href="perfil.html">Perfil</a></li>
+				<li><a href="politica_privacidade.html">Política de Privacidade</a></li>
+			</ul>
+		</nav>
+
+		<div class="login-container">
+			<h2>Login</h2>
+			<form>
+				<div class="input-group">
+					<label for="useremail">E-mail:</label>
+					<input type="text" name="useremail" id="useremail" placeholder="Digite seu e-mail" required />
+				</div>
+				<div class="input-group">
+					<label for="userpass">Senha:</label>
+					<input type="password" name="userpass" id="userpass" placeholder="Digite sua senha" required />
+				</div>
+				<div class="input-group">
+					<button type="submit">Entrar</button>
+				</div>
+				<div class="input-group">Ainda não tem uma conta? <a href="cadastro.html">Cadastre-se</a></div>
+				<!-- Só pode aparecer depois que a senha for digitada errada uma vez -->
+				<div class="input-group" id="esqueci-senha">
+					<a href="esqueci_senha.html">Esqueci minha senha</a>
+				</div>
+			</form>
+		</div>
+	</body>
+</html>
