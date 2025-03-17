@@ -6,7 +6,7 @@
 		<title>Livros Na Mão</title>
 		<link rel="stylesheet" href="css/index.css" />
 		<link rel="stylesheet" href="css/login.css" />
-		<link rel="stylesheet" href="css/cookie.css" />
+		<script src="js/login.js"></script>
 	</head>
 	<body>
 		<nav>
@@ -16,7 +16,7 @@
 				<li><a href="contato.html">Contato</a></li>
 				<li><a href="login.html">Login</a></li>
 				<li><a href="cadastro.html">Cadastro</a></li>
-				<!-- Só deve aparecer depois que for feito login -->
+				<!-- Só deve aparecer depois que for feito login js mais avançado -->
 				<li id="perfil-link"><a href="perfil.html">Perfil</a></li>
 				<li><a href="politica_privacidade.html">Política de Privacidade</a></li>
 			</ul>
@@ -34,10 +34,10 @@
 					<input type="password" name="userpass" id="userpass" placeholder="Digite sua senha" required />
 				</div>
 				<div class="input-group">
-					<button type="submit">Entrar</button>
+					<button type="button" id="btnEnviar" onclick="validarLogin()">Entrar</button>
 				</div>
 				<div class="input-group">Ainda não tem uma conta? <a href="cadastro.html">Cadastre-se</a></div>
-				<!-- Só pode aparecer depois que a senha for digitada errada uma vez -->
+				<!-- Só pode aparecer depois que a senha for digitada errada uma vez js mais avançado -->
 				<div class="input-group" id="esqueci-senha">
 					<a href="esqueci_senha.html">Esqueci minha senha</a>
 				</div>
