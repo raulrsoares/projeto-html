@@ -4,9 +4,11 @@ function validarResetSenha() {
 
 	if (password != passwordConfirm) {
 		alert("Senhas não conferem");
+		return;
 	}
 	if (password == "" || passwordConfirm == "") {
 		alert("Todos os campos são obrigatórios");
+		return;
 	}
 	if (password == "admin" || passwordConfirm == "admin") {
 		alert("Senha redefinida com sucesso!");

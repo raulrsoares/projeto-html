@@ -6,9 +6,11 @@ function validarCadastro() {
 
 	if (password != passwordConfirm) {
 		alert("Senhas não conferem");
+		return;
 	}
 	if (userFullName == "" || userEmail == "" || password == "" || passwordConfirm == "") {
 		alert("Todos os campos são obrigatórios");
+		return;
 	}
 	if (userFullName == "Admin" || userEmail == "admin@admin" || password == "admin" || passwordConfirm == "admin") {
 		alert("Cadastro concluído com sucesso!");
