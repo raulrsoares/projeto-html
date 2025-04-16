@@ -4,153 +4,7 @@
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Detalhes do Livro - Aluguel de Livros</title>
-		<style>
-			body {
-				font-family: sans-serif;
-				margin: 0;
-				padding: 0;
-				background-color: #f4f4f4;
-				color: #333;
-			}
-
-			header {
-				background-color: #333;
-				color: #fff;
-				padding: 1em 0;
-				text-align: center;
-			}
-
-			nav {
-				background-color: #ddd;
-				padding: 0.5em 0;
-				text-align: center;
-			}
-
-			nav a {
-				margin: 0 1em;
-				text-decoration: none;
-				color: #333;
-				font-weight: bold;
-			}
-
-			.container {
-				width: 80%;
-				margin: 20px auto;
-				background-color: #fff;
-				padding: 20px;
-				border-radius: 8px;
-				box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-				display: flex;
-				gap: 20px;
-			}
-
-			.book-cover {
-				flex-shrink: 0;
-				width: 200px;
-				border: 1px solid #ddd;
-				border-radius: 5px;
-				overflow: hidden;
-			}
-
-			.book-cover img {
-				width: 100%;
-				height: auto;
-				display: block;
-			}
-
-			.book-details {
-				flex-grow: 1;
-			}
-
-			.book-details h2 {
-				color: #333;
-				margin-top: 0;
-				margin-bottom: 10px;
-			}
-
-			.book-details p {
-				margin-bottom: 8px;
-				color: #555;
-				line-height: 1.6;
-			}
-
-			.book-details .availability {
-				font-weight: bold;
-			}
-
-			.available {
-				color: green;
-			}
-
-			.unavailable {
-				color: red;
-			}
-
-			.reserved {
-				color: orange;
-			}
-
-			.book-actions {
-				margin-top: 20px;
-			}
-
-			.book-actions button {
-				padding: 10px 20px;
-				border: none;
-				border-radius: 5px;
-				cursor: pointer;
-				font-size: 1em;
-				margin-right: 10px;
-			}
-
-			.book-actions .borrow {
-				background-color: #5cb85c;
-				color: #fff;
-			}
-
-			.book-actions .borrow:hover {
-				background-color: #4cae4c;
-			}
-
-			.book-actions .reserve {
-				background-color: #f0ad4e;
-				color: #fff;
-			}
-
-			.book-actions .reserve:hover {
-				background-color: #eea236;
-			}
-
-			.book-actions .favorite {
-				background-color: #007bff;
-				color: #fff;
-			}
-
-			.book-actions .favorite:hover {
-				background-color: #0056b3;
-			}
-
-			.back-link {
-				display: block;
-				margin-top: 20px;
-				color: #007bff;
-				text-decoration: none;
-			}
-
-			.back-link:hover {
-				text-decoration: underline;
-			}
-
-			footer {
-				text-align: center;
-				padding: 1em 0;
-				background-color: #333;
-				color: #fff;
-				position: fixed;
-				bottom: 0;
-				width: 100%;
-			}
-		</style>
+		<link rel="stylesheet" href="css/livros-detalhe.css" />
 	</head>
 	<body>
 		<header>
@@ -176,9 +30,9 @@
 				<p><span class="label">Disponibilidade:</span> <span id="book-availability" class="available">Disponível</span></p>
 				<p>
 					<span class="label">Sinopse:</span>
-					<span id="book-description"
-						>Uma breve descrição interessante sobre o livro. Este é um texto de exemplo para preencher a sinopse do livro.</span
-					>
+					<span id="book-description">
+						Uma breve descrição interessante sobre o livro. Este é um texto de exemplo para preencher a sinopse do livro.
+					</span>
 				</p>
 
 				<div class="book-actions">
@@ -195,79 +49,6 @@
 			<p>&copy; 2025 Aluguel de Livros - Bibliotecas Públicas</p>
 		</footer>
 
-		<script>
-			// Simulação para obter o ID do livro da URL (em uma aplicação real, você usaria algo como window.location.pathname)
-			const livroId = 123; // Exemplo de ID do livro
-
-			// Função para buscar os detalhes do livro (simulação)
-			async function buscarDetalhesDoLivro(id) {
-				// Em uma aplicação real, você faria uma chamada para sua API:
-				// const response = await fetch(`/api/livros/${id}`);
-				// const data = await response.json();
-				return new Promise((resolve) => {
-					// Simulação de dados vindos da API
-					setTimeout(() => {
-						resolve({
-							id: id,
-							titulo: "O Senhor dos Anéis: A Sociedade do Anel",
-							autor: "J.R.R. Tolkien",
-							ano: 1954,
-							genero: "Fantasia",
-							disponibilidade: "disponível",
-							sinopse:
-								"Um humilde hobbit do Condado recebe um anel mágico que é a chave para o domínio do mal na Terra-média. Junto com um grupo diversificado de companheiros, ele embarca em uma perigosa jornada para destruir o Anel e frustrar o Senhor das Trevas Sauron.",
-							capa: "https://m.media-amazon.com/images/I/71jLBKjzKUL._SY342_.jpg",
-						});
-					}, 500);
-				});
-			}
-
-			// Função para exibir os detalhes do livro na página
-			async function exibirDetalhesDoLivro() {
-				const detalhes = await buscarDetalhesDoLivro(livroId);
-
-				document.getElementById("book-image").src = detalhes.capa;
-				document.getElementById("book-title").textContent = detalhes.titulo;
-				document.getElementById("book-author").textContent = detalhes.autor;
-				document.getElementById("book-year").textContent = detalhes.ano;
-				document.getElementById("book-genre").textContent = detalhes.genero;
-
-				const disponibilidadeSpan = document.getElementById("book-availability");
-				disponibilidadeSpan.textContent =
-					detalhes.disponibilidade === "disponível" ? "Disponível" : detalhes.disponibilidade === "empréstimo" ? "Em Empréstimo" : "Reservado";
-				disponibilidadeSpan.className = `availability ${detalhes.disponibilidade}`;
-
-				document.getElementById("book-description").textContent = detalhes.sinopse;
-
-				const botaoEmprestimo = document.querySelector(".book-actions .borrow");
-				const botaoReserva = document.querySelector(".book-actions .reserve");
-
-				if (detalhes.disponibilidade === "disponível") {
-					botaoEmprestimo.style.display = "inline-block";
-					botaoReserva.style.display = "none";
-				} else {
-					botaoEmprestimo.style.display = "none";
-					botaoReserva.style.display = "inline-block";
-				}
-			}
-
-			function emprestarLivro() {
-				alert("Livro solicitado para empréstimo! (Funcionalidade real precisaria de backend)");
-				// Aqui você implementaria a lógica para registrar o empréstimo via API
-			}
-
-			function reservarLivro() {
-				alert("Livro reservado! (Funcionalidade real precisaria de backend)");
-				// Aqui você implementaria a lógica para registrar a reserva via API
-			}
-
-			function adicionarAosFavoritos() {
-				alert("Livro adicionado aos seus favoritos! (Funcionalidade real precisaria de backend)");
-				// Aqui você implementaria a lógica para adicionar aos favoritos via API
-			}
-
-			// Carrega os detalhes do livro quando a página é carregada
-			window.onload = exibirDetalhesDoLivro;
-		</script>
+		<script src="js/livros-detalhe.js"></script>
 	</body>
 </html>
