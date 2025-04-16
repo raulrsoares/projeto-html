@@ -3,21 +3,47 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Livros Na Mão</title>
-		<link rel="stylesheet" href="css/index.css" />
+		<title>Livros Disponíveis - Aluguel de Livros</title>
+		<link rel="stylesheet" href="css/livros.css" />
 	</head>
 	<body>
+		<header>
+			<h1>Catálogo de Livros</h1>
+		</header>
+
 		<nav>
-			<ul>
-				<li><a href="index.html">Início</a></li>
-				<li><a href="livros.html">Livros</a></li>
-				<li><a href="contato.html">Contato</a></li>
-				<li><a href="login.html">Login</a></li>
-				<li><a href="cadastro.html">Cadastro</a></li>
-				<!-- Só deve aparecer depois que for feito login -->
-				<li id="perfil-link"><a href="perfil.html">Perfil</a></li>
-				<li><a href="politica_privacidade.html">Política de Privacidade</a></li>
-			</ul>
+			<a href="/">Home</a>
+			<a href="/perfil">Meu Perfil</a>
+			<a href="/emprestimos">Meus Empréstimos</a>
+			<a href="/reservas">Minhas Reservas</a>
+			<a href="/logout">Sair</a>
 		</nav>
+
+		<div class="container">
+			<h2>Livros Disponíveis</h2>
+
+			<div class="filter-bar">
+				<label for="busca">Buscar:</label>
+				<input type="text" id="busca" placeholder="Título, Autor" />
+				<label for="filtroGenero">Gênero:</label>
+				<select id="filtroGenero">
+					<option value="">Todos</option>
+					<option value="ficcao">Ficção</option>
+					<option value="romance">Romance</option>
+					<option value="suspense">Suspense</option>
+					<option value="fantasia">Fantasia</option>
+					<option value="biografia">Biografia</option>
+				</select>
+				<button onclick="filtrarLivros()">Filtrar</button>
+			</div>
+
+			<div class="book-list" id="listaDeLivros"></div>
+		</div>
+
+		<footer>
+			<p>&copy; 2025 Aluguel de Livros - Bibliotecas Públicas</p>
+		</footer>
+
+		<script src="js/livros.js"></script>
 	</body>
 </html>

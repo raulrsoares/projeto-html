@@ -8,16 +8,16 @@ body {
 	min-height: 100vh;
 }
 
-.cadastro-container {
+.login-container {
 	background-color: #fff;
 	padding: 30px;
 	border-radius: 8px;
 	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-	width: 350px;
+	width: 300px;
 	text-align: center;
 }
 
-.cadastro-container h2 {
+.login-container h2 {
 	margin-bottom: 20px;
 	color: #333;
 }
@@ -44,7 +44,7 @@ body {
 }
 
 .input-group button {
-	background-color: #007bff;
+	background-color: #f0ad4e;
 	color: #fff;
 	padding: 10px 15px;
 	border: none;
@@ -55,7 +55,7 @@ body {
 }
 
 .input-group button:hover {
-	background-color: #0056b3;
+	background-color: #eea236;
 }
 
 .input-group a {

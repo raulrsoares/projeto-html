@@ -3,20 +3,35 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Cadastro - Aluguel de Livros</title>
+		<title>Livros Na Mão</title>
+		<link rel="stylesheet" href="css/index.css" />
 		<link rel="stylesheet" href="css/cadastro.css" />
+		<script src="js/cadastro.js"></script>
 	</head>
 	<body>
+		<nav>
+			<ul>
+				<li><a href="index.html">Início</a></li>
+				<li><a href="livros.html">Livros</a></li>
+				<li><a href="contato.html">Contato</a></li>
+				<li><a href="login.html">Login</a></li>
+				<li><a href="cadastro.html">Cadastro</a></li>
+				<!-- Só deve aparecer depois que for feito login -->
+				<li id="perfil-link"><a href="perfil.html">Perfil</a></li>
+				<li><a href="politica_privacidade.html">Política de Privacidade</a></li>
+			</ul>
+		</nav>
+
 		<div class="cadastro-container">
 			<h2>Cadastre-se</h2>
-			<form id="cadastroForm">
+			<form>
 				<div class="input-group">
 					<label for="userfullname">Nome Completo:</label>
 					<input type="text" name="userfullname" id="userfullname" placeholder="Digite seu nome" required />
 				</div>
 				<div class="input-group">
 					<label for="useremail">E-mail:</label>
-					<input type="email" name="useremail" id="useremail" placeholder="Digite seu e-mail" required />
+					<input type="text" name="useremail" id="useremail" placeholder="Digite seu e-mail" required />
 				</div>
 				<div class="input-group">
 					<label for="userpass">Senha:</label>
@@ -32,7 +47,5 @@
 				<div class="input-group">Já possui uma conta? <a href="login.html">Conecte-se</a></div>
 			</form>
 		</div>
-
-		<script src="js/cadastro.js"></script>
 	</body>
 </html>

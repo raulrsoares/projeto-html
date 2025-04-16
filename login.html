@@ -3,28 +3,13 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Livros Na Mão</title>
-		<link rel="stylesheet" href="css/index.css" />
+		<title>Login - Livros na Mão</title>
 		<link rel="stylesheet" href="css/login.css" />
-		<script src="js/login.js"></script>
 	</head>
 	<body>
-		<nav>
-			<ul>
-				<li><a href="index.html">Início</a></li>
-				<li><a href="livros.html">Livros</a></li>
-				<li><a href="contato.html">Contato</a></li>
-				<li><a href="login.html">Login</a></li>
-				<li><a href="cadastro.html">Cadastro</a></li>
-				<!-- Só deve aparecer depois que for feito login js mais avançado -->
-				<li id="perfil-link"><a href="perfil.html">Perfil</a></li>
-				<li><a href="politica_privacidade.html">Política de Privacidade</a></li>
-			</ul>
-		</nav>
-
 		<div class="login-container">
 			<h2>Login</h2>
-			<form>
+			<form id="loginForm">
 				<div class="input-group">
 					<label for="useremail">E-mail:</label>
 					<input type="text" name="useremail" id="useremail" placeholder="Digite seu e-mail" required />
@@ -37,11 +22,12 @@
 					<button type="button" id="btnEnviar" onclick="validarLogin()">Entrar</button>
 				</div>
 				<div class="input-group">Ainda não tem uma conta? <a href="cadastro.html">Cadastre-se</a></div>
-				<!-- Só pode aparecer depois que a senha for digitada errada uma vez js mais avançado -->
 				<div class="input-group" id="esqueci-senha">
-					<a href="esqueci_senha.html">Esqueci minha senha</a>
+					<a href="recuperar-senha.html">Esqueci minha senha</a>
 				</div>
 			</form>
 		</div>
+
+		<script src="js/login.js"></script>
 	</body>
 </html>

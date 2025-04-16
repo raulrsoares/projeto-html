@@ -1,0 +1,73 @@
+@import url("cookie.css");
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	font-family: Arial, Helvetica, sans-serif;
+	background-color: #f4f4f4;
+	text-align: center;
+}
+
+nav {
+	background-color: #ae6330;
+	padding: 10px 0;
+}
+
+nav ul {
+	list-style: none;
+	padding: 0;
+}
+
+nav ul li {
+	display: inline-block;
+	position: relative;
+	margin: 0 15px;
+}
+
+nav ul li a {
+	text-decoration: none;
+	color: #f4f4f4;
+	font-size: 18px;
+	padding: 10px 15px;
+	background: #c97a46;
+	border-radius: 5px;
+}
+
+nav ul li a:hover {
+	background-color: #fea872;
+}
+
+/* Sub Menu */
+
+nav ul .sub-menu {
+	display: none;
+	position: absolute;
+	background-color: #c97a46;
+	list-style: none;
+	top: 100%;
+	left: 0;
+	width: 150px;
+	border-radius: 5px;
+	padding-top: 5px;
+}
+
+nav ul li:hover .sub-menu {
+	display: block;
+	text-align: left;
+}
+
+nav ul .sub-menu li a {
+	display: block;
+	padding: 10px;
+	border-radius: 0;
+}
+
+/* perfil-link  */
+#perfil-link {
+	/* Isso precisa ser alterado dinamicamente por script para fazer sumir e aparecer */
+	display: inline;
+}

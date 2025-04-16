@@ -3,21 +3,62 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Livros Na Mão</title>
+		<title>Livros na Mão - Bibliotecas Públicas</title>
 		<link rel="stylesheet" href="css/index.css" />
 	</head>
 	<body>
+		<header>
+			<h1>Livros na Mão - Bibliotecas Públicas</h1>
+		</header>
+
 		<nav>
-			<ul>
-				<li><a href="index.html">Início</a></li>
-				<li><a href="livros.html">Livros</a></li>
-				<li><a href="contato.html">Contato</a></li>
-				<li><a href="login.html">Login</a></li>
-				<li><a href="cadastro.html">Cadastro</a></li>
-				<!-- Só deve aparecer depois que for feito login -->
-				<li id="perfil-link"><a href="perfil.html">Perfil</a></li>
-				<li><a href="politica_privacidade.html">Política de Privacidade</a></li>
-			</ul>
+			<a href="login.html">Entrar</a>
+			<a href="cadastro.html">Cadastrar-se</a>
+			<a href="livros.html">Visualizar Livros</a>
 		</nav>
+
+		<div class="container">
+			<section id="home">
+				<h2>Bem-vindo ao Sistema de Livros na Mão para Bibliotecas Públicas</h2>
+				<p>Explore nosso catálogo de livros e gerencie seus empréstimos de forma fácil e rápida.</p>
+				<p>Faça login ou cadastre-se para aproveitar todas as funcionalidades.</p>
+				<a href="login.html" class="button">Entrar</a>
+				<a href="cadastro.html" class="button">Cadastrar-se</a>
+
+				<h3>Livros Disponíveis</h3>
+				<div class="book-list">
+					<div class="book-item">
+						<img src="https://via.placeholder.com/100x150" alt="Capa do Livro 1" />
+						<h3>Título do Livro 1</h3>
+						<p>Autor: Autor 1</p>
+						<p class="availability available">Disponível</p>
+						<a href="/livro/1" class="button">Ver Detalhes</a>
+					</div>
+					<div class="book-item">
+						<img src="https://via.placeholder.com/100x150" alt="Capa do Livro 2" />
+						<h3>Título do Livro 2</h3>
+						<p>Autor: Autor 2</p>
+						<p class="availability unavailable">Em Empréstimo</p>
+						<a href="/livro/2" class="button">Ver Detalhes</a>
+					</div>
+					<div class="book-item">
+						<img src="https://via.placeholder.com/100x150" alt="Capa do Livro 3" />
+						<h3>Título do Livro 3</h3>
+						<p>Autor: Autor 3</p>
+						<p class="availability reserved">Reservado</p>
+						<a href="/livro/3" class="button">Ver Detalhes</a>
+					</div>
+				</div>
+			</section>
+		</div>
+
+		<div class="cookie-popup">Este site usa cookies para melhorar sua experiência. <button onclick="acceptCookies()">Aceitar</button></div>
+
+		<footer>
+			<p>&copy; 2025 Livros na Mão - Bibliotecas Públicas</p>
+			<p><a href="/contato">Contato</a> | <a href="/privacidade">Políticas de Privacidade</a> | <a href="/termos">Termos de Uso</a></p>
+		</footer>
+
+		<script src="js/index.js"></script>
 	</body>
 </html>

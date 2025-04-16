@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Recuperar Senha - Aluguel de Livros</title>
+		<link rel="stylesheet" href="css/recuperar-senha.css" />
+	</head>
+	<body>
+		<div class="login-container">
+			<h2>Recuperar Senha</h2>
+			<form id="recuperarSenhaForm">
+				<div class="input-group">
+					<label for="useremail">E-mail:</label>
+					<input type="email" name="useremail" id="useremail" placeholder="Digite seu e-mail" required />
+				</div>
+				<div class="input-group">
+					<button type="button" onclick="validarEmailEsqueciSenha()">Recuperar Senha</button>
+				</div>
+				<div class="input-group">Lembrou sua senha? <a href="login.html">Conecte-se</a></div>
+			</form>
+		</div>
+
+		<script src="js/recuperar-senha.js"></script>
+	</body>
+</html>
