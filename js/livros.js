@@ -40,7 +40,6 @@ const livrosData = [
 		disponibilidade: "disponível",
 		capa: "https://via.placeholder.com/100x150?text=Livro+5",
 	},
-	// ... mais livros
 ];
 
 function criarElementoLivro(livro) {
@@ -67,7 +66,7 @@ function criarElementoLivro(livro) {
 	divAcoes.classList.add("book-actions");
 
 	const linkDetalhes = document.createElement("a");
-	linkDetalhes.href = `/livro/${livro.id}`;
+	linkDetalhes.href = `livros-detalhe.html?id=${livro.id}`;
 	linkDetalhes.textContent = "Ver Detalhes";
 
 	const botaoEmprestimo = document.createElement("button");
@@ -95,7 +94,6 @@ function criarElementoLivro(livro) {
 	return divLivro;
 }
 
-// Função para popular a lista de livros quando a página carrega
 function popularListaDeLivros() {
 	livrosData.forEach((livro) => {
 		const elementoLivro = criarElementoLivro(livro);
@@ -103,7 +101,6 @@ function popularListaDeLivros() {
 	});
 }
 
-// Chama a função para popular a lista assim que o script é executado
 popularListaDeLivros();
 
 function emprestarLivro(livroId) {
