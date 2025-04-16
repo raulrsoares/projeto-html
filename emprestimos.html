@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Meus Empréstimos - Aluguel de Livros</title>
+		<link rel="stylesheet" href="css/emprestimos.css" />
+	</head>
+	<body>
+		<header>
+			<h1>Meus Empréstimos</h1>
+		</header>
+
+		<nav>
+			<a href="index.html">Home</a>
+			<a href="livros.html">Livros</a>
+			<a href="perfil.html">Meu Perfil</a>
+			<a href="emprestimos.html">Meus Empréstimos</a>
+			<a href="reservas.html">Minhas Reservas</a>
+			<a href="#" onclick="logout()">Sair</a>
+		</nav>
+
+		<div class="container">
+			<h2>Livros Emprestados</h2>
+
+			<ul class="loan-list" id="loanList">
+				<li class="no-loans">Nenhum livro emprestado no momento.</li>
+			</ul>
+		</div>
+
+		<footer>
+			<p>&copy; 2025 Aluguel de Livros - Bibliotecas Públicas</p>
+		</footer>
+
+		<script src="js/emprestimos.js"></script>
+		<script src="js/logout.js"></script>
+	</body>
+</html>
