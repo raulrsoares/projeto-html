@@ -1,14 +1,9 @@
-// Função para obter o ID do livro da URL
-function obterIdDoLivroDaUrl() {
-	const pathSegments = window.location.pathname.split("/");
-	const idIndex = pathSegments.indexOf("livro") + 1;
-	if (idIndex > 0 && idIndex < pathSegments.length) {
-		return pathSegments[idIndex];
-	}
-	return null;
+function obterIdDoLivroDaQuery() {
+	const urlSearchParams = new URLSearchParams(window.location.search);
+	return urlSearchParams.get("id");
 }
 
-const livroId = obterIdDoLivroDaUrl();
+const livroId = obterIdDoLivroDaQuery();
 
 if (livroId) {
 	console.log("ID do livro da URL:", livroId);
