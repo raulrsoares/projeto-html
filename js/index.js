@@ -17,3 +17,37 @@ function buscarLivros() {
 		}
 	});
 }
+
+function temperaturaLocal() {
+	const userId = sessionStorage.getItem("user_id");
+	const API = "http://localhost:3000/api"; // Mantenha sua constante API
+
+	if (userId) {
+		fetch(`${API}/customers/read/${userId}`)
+			.then((response) => {
+				if (!response.ok) {
+					console.error(`Erro ao buscar dados do usuário ${userId}: ${response.status}`);
+					return;
+				}
+				return response.json();
+			})
+			.then((data) => {
+				console.log("Dados do usuário:", data);
+				if (data.cep) {
+					const marquee = document.createElement("marquee");
+					marquee.textContent = data.emprestimo.titulo;
+					const algumContainer = document.getElementsByTagName("nav");
+					algumContainer.appendChild(marquee);
+				} else {
+					console.log("Título do empréstimo não encontrado nos dados do usuário.");
+				}
+			})
+			.catch((error) => {
+				console.error("Erro na requisição para ler usuário:", error);
+			});
+	} else {
+		console.log("user_id não encontrado no sessionStorage. Nenhuma ação tomada.");
+	}
+}
+
+temperaturaLocal();
