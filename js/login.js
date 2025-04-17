@@ -12,8 +12,7 @@ function validarLogin() {
 		senha: password,
 	};
 
-	const API = "http://localhost:3000/api";
-	q;
+	const API = "https://projeto-html-api.vercel.app/api";
 
 	fetch(`${API}/auth`, {
 		method: "POST",
