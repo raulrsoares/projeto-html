@@ -75,13 +75,13 @@ function criarElementoLivro(livro) {
 	botaoEmprestimo.classList.add("borrow");
 	botaoEmprestimo.textContent = "Emprestar";
 	botaoEmprestimo.onclick = () => emprestarLivro(livro.id);
+	botaoEmprestimo.style.display = livro.disponibilidade === "disponível" ? "inline-block" : "none";
 
 	const botaoReserva = document.createElement("button");
 	botaoReserva.classList.add("reserve");
 	botaoReserva.textContent = "Reservar";
 	botaoReserva.onclick = () => reservarLivro(livro.id);
 	botaoReserva.style.display = livro.disponibilidade !== "disponível" ? "inline-block" : "none";
-	botaoEmprestimo.style.display = livro.disponibilidade === "disponível" ? "inline-block" : "none";
 
 	divAcoes.appendChild(linkDetalhes);
 	divAcoes.appendChild(botaoEmprestimo);
