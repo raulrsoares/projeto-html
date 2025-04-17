@@ -64,7 +64,7 @@ function validarCadastro() {
 		password: senha,
 	};
 
-	const API = "http://localhost:3000/api";
+	const API = "https://projeto-html-api.vercel.app/api";
 
 	fetch(`${API}/customers/create`, {
 		method: "POST",
