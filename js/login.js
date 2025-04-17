@@ -26,6 +26,7 @@ function validarLogin() {
 			console.log("Usuário autenticado com sucesso:", data);
 			localStorage.setItem("authorization", data.authorization);
 			localStorage.setItem("role", data.role);
+			localStorage.setItem("user_id", data.id);
 			window.location.href = "livros.html";
 		})
 		.catch((error) => {
