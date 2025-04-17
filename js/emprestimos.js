@@ -1,13 +1,17 @@
+console.error("Funções dessa pagina não implementadas na API");
+
 const loanList = document.getElementById("loanList");
 
 const meusEmprestimos = [
 	{
 		id: 1,
-		titulo: "Título do Livro A",
-		autor: "Autor X",
-		dataEmprestimo: "2025-04-01",
+		titulo: "Ninguém vai te ouvir gritar",
+		autor: "Mark Miller",
+		genero: "suspense",
+		disponibilidade: "disponível",
 		dataDevolucao: "2025-04-15",
-		capa: "https://via.placeholder.com/80x120?text=Livro+A",
+		dataEmprestimo: "2025-04-01",
+		capa: "https://m.media-amazon.com/images/I/81Jz5PrvZFL._SY466_.jpg",
 	},
 ];
 
