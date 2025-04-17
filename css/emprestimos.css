@@ -1,31 +1,3 @@
-body {
-	font-family: sans-serif;
-	margin: 0;
-	padding: 0;
-	background-color: #f4f4f4;
-	color: #333;
-}
-
-header {
-	background-color: #333;
-	color: #fff;
-	padding: 1em 0;
-	text-align: center;
-}
-
-nav {
-	background-color: #ddd;
-	padding: 0.5em 0;
-	text-align: center;
-}
-
-nav a {
-	margin: 0 1em;
-	text-decoration: none;
-	color: #333;
-	font-weight: bold;
-}
-
 .container {
 	width: 80%;
 	margin: 20px auto;
@@ -33,11 +5,7 @@ nav a {
 	padding: 20px;
 	border-radius: 8px;
 	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-h2 {
-	color: #333;
-	margin-bottom: 20px;
+	flex-grow: 1; 
 }
 
 .loan-list {
@@ -112,14 +80,4 @@ h2 {
 .no-loans {
 	color: #777;
 	font-style: italic;
-}
-
-footer {
-	text-align: center;
-	padding: 1em 0;
-	background-color: #333;
-	color: #fff;
-	position: fixed;
-	bottom: 0;
-	width: 100%;
 }
