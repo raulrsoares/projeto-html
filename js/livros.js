@@ -1,3 +1,5 @@
+console.error("Funções dessa pagina não implementadas na API");
+
 const listaDeLivrosDiv = document.getElementById("listaDeLivros");
 const livrosData = [
 	{
@@ -104,11 +106,11 @@ function popularListaDeLivros() {
 popularListaDeLivros();
 
 function emprestarLivro(livroId) {
-	alert(`Livro ${livroId} solicitado para empréstimo! (Funcionalidade real precisaria de backend)`);
+	alert(`Livro ${livroId} solicitado para empréstimo! (Funcionalidade não implementada)`);
 }
 
 function reservarLivro(livroId) {
-	alert(`Livro ${livroId} reservado! (Funcionalidade real precisaria de backend)`);
+	alert(`Livro ${livroId} reservado! (Funcionalidade não implementada)`);
 }
 
 function filtrarLivros() {

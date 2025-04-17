@@ -1,3 +1,5 @@
+console.error("Funções dessa pagina não implementadas na API");
+
 function obterIdDoLivroDaQuery() {
 	const urlSearchParams = new URLSearchParams(window.location.search);
 	return urlSearchParams.get("id");
