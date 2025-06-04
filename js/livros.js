@@ -1,7 +1,7 @@
 console.error("Nem todas as funções dessa página não implementadas na API");
 
 const listaDeLivrosDiv = document.getElementById("listaDeLivros");
-const API = "http://localhost:3000/api";
+const API = "https://projeto-html-api.vercel.app/api";
 
 fetch(`${API}/books/read/all`, {
 	method: "GET",

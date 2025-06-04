@@ -1,4 +1,4 @@
-const API = "http://localhost:3000/api";
+const API = "https://projeto-html-api.vercel.app/api";
 
 function obterIdDoLivroDaQuery() {
 	const urlSearchParams = new URLSearchParams(window.location.search);

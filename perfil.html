@@ -1,1 +1,93 @@
-<p>Not Implement</p>
+<!DOCTYPE html>
+<html lang="pt-br">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Meu Perfil - Aluguel de Livros</title>
+		<link rel="stylesheet" href="css/base.css" />
+		<link rel="stylesheet" href="css/profile.css" />
+	</head>
+	<body>
+		<header>
+			<h1>Meu Perfil</h1>
+		</header>
+
+		<nav>
+			<a href="index.html">Home</a>
+			<a href="livros.html">Livros</a>
+			<a href="perfil.html">Meu Perfil</a>
+			<a href="emprestimos.html">Meus Empréstimos</a>
+			<a href="reservas.html">Minhas Reservas</a>
+			<a href="#" onclick="logout()">Sair</a>
+		</nav>
+
+		<div class="container profile-container">
+			<h2>Meu Perfil</h2>
+
+			<div class="profile-info" id="profileInfo">
+				<p>
+					<strong>Nome:</strong>
+					<span id="user-name-view" class="view-mode-field">Carregando...</span>
+					<input type="text" id="user-name-edit" class="edit-mode-field" />
+					<span id="name-error" class="field-error"></span>
+				</p>
+				<p id="lastname-wrapper">
+					<strong>Sobrenome:</strong>
+					<span id="user-lastname-view" class="view-mode-field">Carregando...</span>
+					<input type="text" id="user-lastname-edit" class="edit-mode-field" />
+					<span id="lastname-error" class="field-error"></span>
+				</p>
+				<p>
+					<strong>E-mail:</strong>
+					<span id="user-email-view" class="view-mode-field">Carregando...</span>
+					<input type="email" id="user-email-edit" class="edit-mode-field" />
+					<span id="email-error" class="field-error"></span>
+				</p>
+				<p>
+					<strong>Data de Cadastro:</strong>
+					<span id="registration-date">Carregando...</span>
+				</p>
+				<p>
+					<strong>Livros Emprestados Atualmente:</strong>
+					<span id="current-loans">Carregando...</span>
+				</p>
+				<p>
+					<strong>Reservas Ativas:</strong>
+					<span id="active-reservations">Carregando...</span>
+				</p>
+
+				<div class="password-fields edit-mode-field">
+					<p>
+						<strong>Senha Atual:</strong>
+						<input type="password" id="current-password-edit" placeholder="Obrigatório para salvar" />
+						<span id="current-password-error" class="field-error"></span>
+					</p>
+					<p>
+						<strong>Nova Senha:</strong>
+						<input type="password" id="new-password-edit" placeholder="Deixe em branco para não alterar" />
+						<span id="new-password-error" class="field-error"></span>
+					</p>
+					<p>
+						<strong>Confirme Nova Senha:</strong>
+						<input type="password" id="confirm-new-password-edit" placeholder="Confirme a nova senha" />
+						<span id="confirm-new-password-error" class="field-error"></span>
+					</p>
+				</div>
+			</div>
+
+			<div class="profile-actions">
+				<button class="edit-profile-button button button-primary" onclick="toggleEditMode()">Editar Perfil</button>
+
+				<div class="save-cancel-buttons" id="saveCancelButtons">
+					<button class="button button-success" onclick="salvarPerfil()">Salvar Alterações</button>
+					<button class="button button-danger" onclick="cancelarEdicao()">Cancelar</button>
+				</div>
+				<a href="#" onclick="logout()" class="logout-button button button-danger">Sair</a>
+			</div>
+		</div>
+		<footer>
+			<p>&copy; 2025 Aluguel de Livros - Bibliotecas Públicas</p>
+		</footer>
+		<script src="js/perfil.js"></script>
+	</body>
+</html>

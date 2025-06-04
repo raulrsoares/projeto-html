@@ -1,3 +1,21 @@
+:root {
+	--primary-color: #934c1a; /* Cor principal (ex: cabeçalho, botões principais) */
+	--secondary-color: #ae6330; /* Cor secundária (ex: navegação) */
+	--accent-color: #007bff; /* Cor de destaque (ex: links, botões de ação) */
+	--accent-hover-color: #0056b3; /* Cor de destaque ao passar o mouse */
+	--error-color: #dc3545; /* Cor de erro */
+	--error-hover-color: #c82333; /* Cor de erro ao passar o mouse */
+	--success-color: #5cb85c; /* Cor de sucesso */
+	--success-hover-color: #4cae4c; /* Cor de sucesso ao passar o mouse */
+	--warning-color: #f0ad4e; /* Cor de aviso */
+	--warning-hover-color: #eea236; /* Cor de aviso ao passar o mouse */
+	--text-color: #333; /* Cor padrão do texto */
+	--light-text-color: #fff; /* Cor do texto claro (para fundos escuros) */
+	--background-color: #f4f4f4; /* Cor de fundo da página */
+	--card-background-color: #fff; /* Cor de fundo de cards/contêineres */
+	--border-color: #ddd; /* Cor padrão de borda */
+}
+
 .color1 {
 	color: #934c1a;
 }
@@ -18,22 +36,22 @@ body {
 	font-family: sans-serif;
 	margin: 0;
 	padding: 0;
-	background-color: #f4f4f4;
-	color: #333;
+	background-color: var(--background-color);
+	color: var(--text-color);
 	display: flex;
 	flex-direction: column;
 	min-height: 100vh;
 }
 
 header {
-	background-color: #934c1a;
-	color: #fff;
+	background-color: var(--primary-color);
+	color: var(--light-text-color);
 	padding: 1em 0;
 	text-align: center;
 }
 
 nav {
-	background-color: #ae6330;
+	background-color: var(--secondary-color);
 	padding: 0.5em 0;
 	text-align: center;
 }
@@ -41,26 +59,101 @@ nav {
 nav a {
 	margin: 0 1em;
 	text-decoration: none;
-	color: #fff;
+	color: var(--light-text-color);
 	font-weight: bold;
+	transition: color 0.3s ease;
+}
+
+nav a:hover {
+	color: var(--background-color);
 }
 
 h2 {
-	color: #934c1a;
+	color: var(--primary-color);
 	margin-bottom: 20px;
+	text-align: center;
 }
 
 footer {
 	text-align: center;
 	padding: 1em 0;
-	background-color: #934c1a;
-	color: #fff;
+	background-color: var(--primary-color);
+	color: var(--light-text-color);
 	width: 100%;
+	margin-top: auto;
 }
 
 footer a {
 	margin: 0 1em;
 	text-decoration: none;
-	color: #fff;
+	color: var(--light-text-color);
 	font-weight: bold;
+	transition: color 0.3s ease;
+}
+
+footer a:hover {
+	color: var(--background-color);
+}
+
+.container {
+	width: 80%;
+	margin: 20px auto;
+	background-color: var(--card-background-color);
+	padding: 20px;
+	border-radius: 8px;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+	flex-grow: 1;
+}
+
+.button,
+button {
+	padding: 10px 20px;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+	font-size: 1em;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	transition: background-color 0.3s ease, color 0.3s ease;
+	box-sizing: border-box;
+}
+
+.button-primary {
+	background-color: var(--accent-color);
+	color: var(--light-text-color);
+}
+.button-primary:hover {
+	background-color: var(--accent-hover-color);
+}
+
+.button-danger {
+	background-color: var(--error-color);
+	color: var(--light-text-color);
+}
+.button-danger:hover {
+	background-color: var(--error-hover-color);
+}
+
+.button-warning {
+	background-color: var(--warning-color);
+	color: var(--light-text-color);
+}
+.button-warning:hover {
+	background-color: var(--warning-hover-color);
+}
+
+.button-success {
+	background-color: var(--success-color);
+	color: var(--light-text-color);
+}
+.button-success:hover {
+	background-color: var(--success-hover-color);
+}
+
+.error-message {
+	color: var(--error-color);
+	font-weight: bold;
+	text-align: center;
+	margin-top: 15px;
 }
