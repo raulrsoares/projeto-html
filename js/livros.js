@@ -1,48 +1,27 @@
-console.error("Funções dessa pagina não implementadas na API");
+console.error("Nem todas as funções dessa página não implementadas na API");
 
 const listaDeLivrosDiv = document.getElementById("listaDeLivros");
-const livrosData = [
-	{
-		id: 1,
-		titulo: "Vermelho, branco e sangue azul (Edição de colecionador)",
-		autor: "Casey McQuiston",
-		genero: "romance",
-		disponibilidade: "disponível",
-		capa: "https://m.media-amazon.com/images/I/51qbUhxsmgL._SY445_SX342_.jpg",
+const API = "http://localhost:3000/api";
+
+fetch(`${API}/books/read/all`, {
+	method: "GET",
+	headers: {
+		"Content-Type": "application/json",
 	},
-	{
-		id: 2,
-		titulo: "O diário de Anne Frank",
-		autor: "Anne Frank",
-		genero: "biografia",
-		disponibilidade: "empréstimo",
-		capa: "https://m.media-amazon.com/images/I/513-4wHWI0L._SY425_.jpg",
-	},
-	{
-		id: 3,
-		titulo: "Código Limpo: Habilidades Práticas do Agile Software",
-		autor: "Robert C. Martin",
-		genero: "educacao",
-		disponibilidade: "disponível",
-		capa: "https://m.media-amazon.com/images/I/41aHzYSXZkL._SY445_SX342_.jpg",
-	},
-	{
-		id: 4,
-		titulo: "Ninguém sai vivo daqui",
-		autor: "Mark Miller",
-		genero: "suspense",
-		disponibilidade: "reservado",
-		capa: "https://m.media-amazon.com/images/I/81dOuTUXbIL._SY466_.jpg",
-	},
-	{
-		id: 5,
-		titulo: "Ninguém vai te ouvir gritar",
-		autor: "Mark Miller",
-		genero: "suspense",
-		disponibilidade: "disponível",
-		capa: "https://m.media-amazon.com/images/I/81Jz5PrvZFL._SY466_.jpg",
-	},
-];
+})
+	.then((response) => response.json())
+	.then((data) => {
+		if (Array.isArray(data)) {
+			popularListaDeLivros(data);
+		} else {
+			console.error("Dados inesperados da API:", data);
+			alert("Erro: dados inválidos retornados da API.");
+		}
+	})
+	.catch((error) => {
+		console.error("Erro ao autenticar:", error);
+		alert(`Erro ao autenticar: ${error.message || "Erro desconhecido"}`);
+	});
 
 function criarElementoLivro(livro) {
 	const divLivro = document.createElement("div");
@@ -96,17 +75,53 @@ function criarElementoLivro(livro) {
 	return divLivro;
 }
 
-function popularListaDeLivros() {
-	livrosData.forEach((livro) => {
+function popularListaDeLivros(livros) {
+	listaDeLivrosDiv.innerHTML = ""; // limpa antes de adicionar
+	livros.forEach((livro) => {
 		const elementoLivro = criarElementoLivro(livro);
 		listaDeLivrosDiv.appendChild(elementoLivro);
 	});
 }
 
-popularListaDeLivros();
-
 function emprestarLivro(livroId) {
 	alert(`Livro ${livroId} solicitado para empréstimo! (Funcionalidade não implementada)`);
+}
+async function emprestarLivro(livroId) {
+	if (!livroId) {
+		alert("ID do livro não encontrado.");
+		return;
+	}
+
+	const token = localStorage.getItem("authorization");
+	if (!token) {
+		alert("Você precisa estar autenticado para realizar esta ação.");
+		window.location.href = "login.html";
+		return;
+	}
+
+	const apiUrl = `${API}/books/update/${livroId}`;
+	const novoStatus = { disponibilidade: "empréstimo" };
+
+	try {
+		const response = await fetch(apiUrl, {
+			method: "PUT",
+			headers: {
+				"Content-Type": "application/json",
+				Authorization: token,
+			},
+			body: JSON.stringify(novoStatus),
+		});
+
+		if (!response.ok) {
+			throw new Error(`Erro na requisição: ${response.status}`);
+		}
+
+		alert("Livro emprestado com sucesso!");
+		window.location.href = "livros.html";
+	} catch (error) {
+		console.error("Erro ao emprestar o livro:", error);
+		alert("Erro ao tentar emprestar o livro.");
+	}
 }
 
 function reservarLivro(livroId) {
@@ -125,10 +140,6 @@ function filtrarLivros() {
 		const matchesBusca = titulo.includes(termoBusca) || autor.includes(termoBusca);
 		const matchesGenero = filtroGenero === "" || generoLivro === filtroGenero;
 
-		if (matchesBusca && matchesGenero) {
-			livro.style.display = "block";
-		} else {
-			livro.style.display = "none";
-		}
+		livro.style.display = matchesBusca && matchesGenero ? "block" : "none";
 	});
 }

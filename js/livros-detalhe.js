@@ -1,4 +1,4 @@
-console.error("Funções dessa pagina não implementadas na API");
+const API = "http://localhost:3000/api";
 
 function obterIdDoLivroDaQuery() {
 	const urlSearchParams = new URLSearchParams(window.location.search);
@@ -16,7 +16,7 @@ if (livroId) {
 }
 
 async function buscarDetalhesDoLivro(id) {
-	const apiUrl = `/api/livros/${id}`;
+	const apiUrl = `${API}/books/read/${id}`;
 	try {
 		const response = await fetch(apiUrl);
 		if (!response.ok) {
@@ -31,19 +31,19 @@ async function buscarDetalhesDoLivro(id) {
 }
 
 function exibirDetalhesDoLivro(detalhes) {
-	document.getElementById("book-image").src = detalhes.capa || "https://via.placeholder.com/200x300?text=Capa+Indisponível";
-	document.getElementById("book-title").textContent = detalhes.titulo || "Título Indisponível";
-	document.getElementById("book-author").textContent = detalhes.autor || "Autor Desconhecido";
-	document.getElementById("book-year").textContent = detalhes.ano || "Ano Desconhecido";
-	document.getElementById("book-genre").textContent = detalhes.genero || "Gênero Desconhecido";
+	document.getElementById("book-image").src = detalhes.book.capa || "https://via.placeholder.com/200x300?text=Capa+Indisponível";
+	document.getElementById("book-title").textContent = detalhes.book.titulo || "Título Indisponível";
+	document.getElementById("book-author").textContent = detalhes.book.autor || "Autor Desconhecido";
+	document.getElementById("book-year").textContent = detalhes.book.ano || "Ano Desconhecido";
+	document.getElementById("book-genre").textContent = detalhes.book.genero || "Gênero Desconhecido";
 
 	const disponibilidadeSpan = document.getElementById("book-availability");
-	const disponibilidade = detalhes.disponibilidade ? detalhes.disponibilidade.toLowerCase() : "indisponível";
+	const disponibilidade = detalhes.book.disponibilidade ? detalhes.book.disponibilidade.toLowerCase() : "indisponível";
 	disponibilidadeSpan.textContent =
 		disponibilidade === "disponível" ? "Disponível" : disponibilidade === "empréstimo" ? "Em Empréstimo" : "Reservado";
 	disponibilidadeSpan.className = `availability ${disponibilidade}`;
 
-	document.getElementById("book-description").textContent = detalhes.sinopse || "Sinopse não disponível.";
+	document.getElementById("book-description").textContent = detalhes.book.sinopse || "Sinopse não disponível.";
 
 	const botaoEmprestimo = document.querySelector(".book-actions .borrow");
 	const botaoReserva = document.querySelector(".book-actions .reserve");
@@ -57,8 +57,43 @@ function exibirDetalhesDoLivro(detalhes) {
 	}
 }
 
-function emprestarLivro() {
-	alert("Livro solicitado para empréstimo! (Funcionalidade real precisaria de backend)");
+async function emprestarLivro() {
+	const id = obterIdDoLivroDaQuery();
+	if (!id) {
+		alert("ID do livro não encontrado.");
+		return;
+	}
+
+	const token = localStorage.getItem("authorization");
+	if (!token) {
+		alert("Você precisa estar autenticado para realizar esta ação.");
+		window.location.href = "login.html";
+		return;
+	}
+
+	const apiUrl = `${API}/books/update/${id}`;
+	const novoStatus = { disponibilidade: "empréstimo" };
+
+	try {
+		const response = await fetch(apiUrl, {
+			method: "PUT",
+			headers: {
+				"Content-Type": "application/json",
+				Authorization: token,
+			},
+			body: JSON.stringify(novoStatus),
+		});
+
+		if (!response.ok) {
+			throw new Error(`Erro na requisição: ${response.status}`);
+		}
+
+		alert("Livro emprestado com sucesso!");
+		buscarDetalhesDoLivro(id); // Atualiza a interface com o novo status
+	} catch (error) {
+		console.error("Erro ao emprestar o livro:", error);
+		alert("Erro ao tentar emprestar o livro.");
+	}
 }
 
 function reservarLivro() {

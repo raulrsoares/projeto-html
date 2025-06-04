@@ -1,4 +1,4 @@
-console.error("Funções dessa pagina não implementadas na API");
+console.error("Nem todas as funções dessa página não implementadas na API");
 
 const loanList = document.getElementById("loanList");
 
